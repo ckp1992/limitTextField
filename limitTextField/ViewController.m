@@ -24,13 +24,19 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)textFieldEditingChanged:(UITextField *)textField {
-    [self limitCharsInTextField:textField limitCount:10];
+    if([textField isEqual:self.limitTextField])
+        [self limitCharsInTextField:textField limitCount:10];
+    if([textField isEqual:self.limitTextField50])
+        [self limitCharsInTextField:textField limitCount:50];
+
 }
 
 - (void)limitCharsInTextField: (UITextField *) textField limitCount:(NSUInteger) count{
    
     NSUInteger length = textField.text.length;
     NSString *str = textField.text;
+    
+    NSLog(@"%lu",(unsigned long)length);
     
     if(length >= count)
         [textField setText:[str substringToIndex:count]];

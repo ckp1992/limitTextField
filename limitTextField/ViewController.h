@@ -11,6 +11,7 @@
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *limitTextField;
+@property (weak, nonatomic) IBOutlet UITextField *limitTextField50;
 - (void)limitCharsInTextField: (UITextField *) textField limitCount:(NSUInteger) count;
 @end
 
