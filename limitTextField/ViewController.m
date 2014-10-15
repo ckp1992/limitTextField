@@ -23,5 +23,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)textFieldEditingChanged:(UITextField *)textField {
+    [self limitCharsInTextField:textField limitCount:10];
+}
+
+- (void)limitCharsInTextField: (UITextField *) textField limitCount:(NSUInteger) count{
+   
+    NSUInteger length = textField.text.length;
+    NSString *str = textField.text;
+    
+    if(length >= count)
+        [textField setText:[str substringToIndex:count]];
+}
 
 @end
